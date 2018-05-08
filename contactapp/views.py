@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-# Create your views here.
-def r(request):
-    return  HttpResponse("hi")
+from .forms import contactform
+
+def getContactPage(request):
+    contact = contactform()
+    return render(request, 'contact.html', {'form': contact})
+
